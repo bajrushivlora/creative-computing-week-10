@@ -49,7 +49,47 @@ function hslColor(h, s, l) {
 
 // 1. Select container element
 // 2. Add 500 divs with the class "shape" to it
+for (var i = 0; i < 500; i++) {
+  //create a div
+  var shape = document.createElement('div');
+
+  //add class "shape" to div
+  shape.classList.add('shape');
+
+  var duration = randomNumber(1, 5);
+
+  shape.style.animationDuration = duration +'s';
+
+  
+
+  // select container div 
+  var container = document.querySelector('.content');
+
+  // add a div with a class "shape" to the container div
+  container.append(shape);
+}
+
+var shapes = document.querySelectorAll('.shape');
+
+shapes.forEach(function (shape, i) {
+  shape.addEventListener('mouseover', function(event) {
+
+    if (shape.classList.contains('shape-interaction')) {
+        shape.classList.remove('shape-interaction');
+    } else {
+      shape.classList.add('shape-interaction');
+    }
+
+  });
+});
+
+
+
+
+
+
 // 3. Add a random animation duration and delay to each shape
 // 4. When the cursor is over the shape, add a modifier class
 // 5. When the cursor is outside of the shape, remove the modifier class
 // 6. When a shape is clicked, change the color
+
